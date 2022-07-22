@@ -1,0 +1,15 @@
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: efs-jqecho-sc
+provisioner: efs.csi.aws.com
+reclaimPolicy: Delete
+allowVolumeExpansion: true
+parameters:
+  provisioningMode: efs-ap
+  fileSystemId: fs-****************
+  directoryPerms: "700"
+  gidRangeStart: "1000"
+  gidRangeEnd: "2000"
+  basePath: "/jqecho"
