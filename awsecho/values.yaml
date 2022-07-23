@@ -41,7 +41,7 @@ liveProbe:
   enabled: false
 
 ## jinquan added.
-efsId: "fs-0bc7388c9453d774f"    ## @AWS EFS fileSystemId: fs-***
+efsId: "fs-******8c9453d774f"    ## @AWS EFS fileSystemId: fs-***
 
 #efsStorageClass:
 #  name: awsecho     ## migrate to template/_helpers.tpl
@@ -70,8 +70,8 @@ ingress:
     alb.ingress.kubernetes.io/target-type: ip       ## ip mode, pod could connect with ALB directly
     alb.ingress.kubernetes.io/group.name: "infra"   ## Multi-Ingress could share One AWS Application LoadBalancer which in a Group
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws-cn:iam::523497193792:server-certificate/wildcard_supor_com_2022  # @@ALB tls ARN
-    alb.ingress.kubernetes.io/subnets: subnet-0e32ea467280f03e4,subnet-07fcdbc419b73be01,subnet-0510005dc58822ea8     # @@ALB Public Subnets ID
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws-cn:iam::**************:server-certificate/wildcard_supor_com_2022  # @@ALB tls ARN
+    alb.ingress.kubernetes.io/subnets: subnet-******467280f03e4,subnet-******c419b73be01,subnet-******5dc58822ea8     # @@ALB Public Subnets ID
   hosts:
     - host: demo0.supor.com
       paths:
