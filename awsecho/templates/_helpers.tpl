@@ -91,3 +91,27 @@ parameters:
   basePath: "/awsecho"
 {{- end -}}
 {{- end -}}
+
+
+{{/*
+Create PersistentVolumeClaim to use
+*/}}
+{{- define "gen.static.pvc" -}}
+{{- if .Values.podStaticPvc.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "awsecho.fullname" . }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.podStaticPvc.capacity }}
+  storageClassName: awsecho
+{{- else }}
+{{/*
+   don't create static pvc & pv
+*/}}
+{{- end }}
+{{- end }}

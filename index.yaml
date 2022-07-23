@@ -3,7 +3,17 @@ entries:
   awsecho:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-23T23:44:36.082333193+08:00"
+    created: "2022-07-24T00:20:19.695423589+08:00"
+    description: A Helm chart for Kubernetes
+    digest: fe850736252a973f5bb67b7efe752771b8f0bbe85945207a01e8c866eb7a9c95
+    name: awsecho
+    type: application
+    urls:
+    - awsecho-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-07-24T00:20:19.694244782+08:00"
     description: A Helm chart for Kubernetes
     digest: 5c7135561fa4b783a6b24bb60d4098c62c394b0cd94fb2fc29b63aa5a803eed5
     name: awsecho
@@ -14,7 +24,7 @@ entries:
   jqecho:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-07-23T23:44:36.083251721+08:00"
+    created: "2022-07-24T00:20:19.696562616+08:00"
     description: A Helm chart for Kubernetes
     digest: b974c49c81d768409ac26fc0a6822f6dabebbbb5665c16e09e8dc575c9b0519c
     name: jqecho
@@ -22,4 +32,4 @@ entries:
     urls:
     - jqecho-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-23T23:44:36.079844707+08:00"
+generated: "2022-07-24T00:20:19.692648229+08:00"

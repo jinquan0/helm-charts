@@ -43,14 +43,6 @@ liveProbe:
 ## jinquan added.
 efsId: "fs-******8c9453d774f"    ## @AWS EFS fileSystemId: fs-***
 
-#efsStorageClass:
-#  name: awsecho     ## migrate to template/_helpers.tpl
-#  reclaim: Delete   ## migrate to template/storageclass.yaml
-#  dirPerm: '"700"'
-#  gidStart: '"1000"'
-#  gidEnd: '"2000"'
-#  basePath: "/awsecho"
-
 ## jinquan added.
 podStaticPvc:
   enabled: false
