@@ -1,0 +1,106 @@
+# Default values for jqdemo.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: docker.io/jinquan711/solar-system   ## jinquan modified.
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "1.2"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+## jinquan added.
+liveProbe:
+  enabled: false
+
+## jinquan added.
+efsId: "fs-0bc7388c9453d774f"    ## @AWS EFS fileSystemId: fs-***
+
+#efsStorageClass:
+#  name: awsecho     ## migrate to template/_helpers.tpl
+#  reclaim: Delete   ## migrate to template/storageclass.yaml
+#  dirPerm: '"700"'
+#  gidStart: '"1000"'
+#  gidEnd: '"2000"'
+#  basePath: "/awsecho"
+
+## jinquan added.
+podStaticPvc:
+  enabled: false
+  capacity: 10Mi
+
+service:
+  type: ClusterIP
+  port: 1323   ## jinquan modified.
+
+## jinquan modified.
+## adapted to AWS Load Balancer Controller
+ingress:
+  enabled: true
+  annotations: 
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip       ## ip mode, pod could connect with ALB directly
+    alb.ingress.kubernetes.io/group.name: "infra"   ## Multi-Ingress could share One AWS Application LoadBalancer which in a Group
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws-cn:iam::523497193792:server-certificate/wildcard_supor_com_2022  # @@ALB tls ARN
+    alb.ingress.kubernetes.io/subnets: subnet-0e32ea467280f03e4,subnet-07fcdbc419b73be01,subnet-0510005dc58822ea8     # @@ALB Public Subnets ID
+  hosts:
+    - host: demo0.supor.com
+      paths:
+        - path: /
+          pathType: Prefix
+  #    hosts:
+  #      - chart-example.local
+
+resources: 
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
