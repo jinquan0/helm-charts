@@ -13,14 +13,19 @@ alb.ingress.kubernetes.io/subnets: subnet-******467280f03e4,subnet-******c419b73
 
 
 ## 部署多个应用
-helm upgrade -i test0 . --namespace myapp \
-  --set podStaticPvc.enabled=true,podStaticPvc.capacity=5Mi \
-  --set ingress.hosts[0].paths[0].path=/,ingress.hosts[0].paths[0].pathType=Prefix,ingress.hosts[0].host=test0.supor.com
+helm upgrade -i solar . --namespace myapp \
+  --set image.repository=docker.io/jinquan711/solar-system \
+  --set image.tag="1.2" \
+  --set ingress.hosts[0].paths[0].path=/,ingress.hosts[0].paths[0].pathType=Prefix,ingress.hosts[0].host=cdp-solar.supor.com
 
-helm upgrade -i test1 . --namespace myapp \
+helm upgrade -i demo0 . --namespace myapp \
   --set podStaticPvc.enabled=true,podStaticPvc.capacity=5Mi \
-  --set ingress.hosts[0].paths[0].path=/,ingress.hosts[0].paths[0].pathType=Prefix,ingress.hosts[0].host=test1.supor.com
+  --set ingress.hosts[0].paths[0].path=/,ingress.hosts[0].paths[0].pathType=Prefix,ingress.hosts[0].host=cdp-demo0.supor.com
 
-helm upgrade -i test2 . --namespace myapp \
+helm upgrade -i demo1 . --namespace myapp \
   --set podStaticPvc.enabled=true,podStaticPvc.capacity=5Mi \
-  --set ingress.hosts[0].paths[0].path=/,ingress.hosts[0].paths[0].pathType=Prefix,ingress.hosts[0].host=test2.supor.com
+  --set ingress.hosts[0].paths[0].path=/,ingress.hosts[0].paths[0].pathType=Prefix,ingress.hosts[0].host=cdp-demo1.supor.com
+
+helm upgrade -i demo2 . --namespace myapp \
+  --set podStaticPvc.enabled=true,podStaticPvc.capacity=5Mi \
+  --set ingress.hosts[0].paths[0].path=/,ingress.hosts[0].paths[0].pathType=Prefix,ingress.hosts[0].host=cdp-demo2.supor.com
