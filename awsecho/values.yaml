@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: docker.io/jinquan711/solar-system   ## jinquan modified.
+  repository: docker.io/jinquan711/echo-server   ## jinquan modified.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.2"
+  tag: "1.0-build3"
 
 imagePullSecrets: []
 nameOverride: ""
