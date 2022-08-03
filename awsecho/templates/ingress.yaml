@@ -13,6 +13,10 @@ metadata:
     {{- include "awsecho.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip       ## ip mode, pod could connect with ALB directly
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:

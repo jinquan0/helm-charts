@@ -57,11 +57,11 @@ service:
 ingress:
   enabled: true
   annotations: 
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip       ## ip mode, pod could connect with ALB directly
-    alb.ingress.kubernetes.io/group.name: "infra"   ## Multi-Ingress could share One AWS Application LoadBalancer which in a Group
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+    #kubernetes.io/ingress.class: alb
+    #alb.ingress.kubernetes.io/scheme: internet-facing
+    #alb.ingress.kubernetes.io/target-type: ip       ## ip mode, pod could connect with ALB directly
+    alb.ingress.kubernetes.io/group.name: "is"   ## Multi-Ingress could share One AWS Application LoadBalancer which in a Group
+    #alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
     alb.ingress.kubernetes.io/certificate-arn: arn:aws-cn:iam::**************:server-certificate/wildcard_supor_com_2022  # @@ALB tls ARN
     alb.ingress.kubernetes.io/subnets: subnet-******467280f03e4,subnet-******c419b73be01,subnet-******5dc58822ea8     # @@ALB Public Subnets ID
   hosts:
