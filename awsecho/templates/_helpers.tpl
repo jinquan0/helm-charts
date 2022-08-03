@@ -115,3 +115,23 @@ spec:
 */}}
 {{- end }}
 {{- end }}
+
+{{/*
+AWS ALB Public subnets id array
+*/}}
+{{- define "aws.albsubnets" -}}
+{{- range .Values.ingress.albsubnets }}{{ print .id  }},{{- end }}
+{{- end }}
+
+{{/*
+AWS Load Balancer Controller, Ingress annotations.
+*/}}
+{{- define "alb.annotations" -}}
+kubernetes.io/ingress.class: alb
+alb.ingress.kubernetes.io/scheme: internet-facing
+alb.ingress.kubernetes.io/target-type: ip       ## ip mode, pod could connect with ALB directly
+alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+alb.ingress.kubernetes.io/subnets: {{ include "aws.albsubnets" . | trimSuffix "," }}
+alb.ingress.kubernetes.io/certificate-arn: {{ .Values.ingress.albcert }}
+alb.ingress.kubernetes.io/group.name: {{ .Values.ingress.albgroup }}     ## Multi-Ingress could share One AWS Application LoadBalancer which in a Group
+{{- end }}
