@@ -6,6 +6,11 @@ helm search repo jqcharts/jqecho
 helm pull jqcharts/awsecho
 tar -xvf awsecho-0.x.0.tgz
 
+### 无ingress, 无数据持久化的应用
+helm upgrade -i solar . --namespace myapp \
+  --create-namespace \
+  --set image.repository=docker.io/jinquan711/solar-system \
+  --set image.tag="1.2"
 
 ###  部署无数据持久化的应用
 helm upgrade -i solar . --namespace myapp \
