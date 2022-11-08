@@ -48,7 +48,7 @@ spec:
           {{- end }}
           ports:
             - name: web
-              containerPort: 1323  ## jinquan modified.
+              containerPort: {{ .Values.service.port }}  ## jinquan modified.
               protocol: TCP
           {{- if .Values.liveProbe.enabled }}  ## jinquan added.
           livenessProbe:
