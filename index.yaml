@@ -3,7 +3,7 @@ entries:
   ahdbaduit:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-15T23:41:20.694834337+08:00"
+    created: "2022-11-08T14:13:27.580080657+08:00"
     description: A Helm chart for Kubernetes
     digest: a630f928ea1e7ffbaafd48643d85fe4276d63bb139a9c17bef1c7416a2dd82ec
     name: ahdbaduit
@@ -14,7 +14,7 @@ entries:
   ahdemoapp:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-15T23:41:20.695977958+08:00"
+    created: "2022-11-08T14:13:27.5823869+08:00"
     description: A Helm chart for Kubernetes
     digest: ec6bbe93dcb05678839c988bd402a96d461da0ffdec0729bc12dcca2d056f9cd
     name: ahdemoapp
@@ -25,9 +25,9 @@ entries:
   awsecho:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-15T23:41:20.701894429+08:00"
+    created: "2022-11-08T14:13:27.58512279+08:00"
     description: A Helm chart for Kubernetes
-    digest: a08d4866a5ed2cc8a1a2f2ba84101cda320064f17a6803e57198ee7ea63d1966
+    digest: be6cff9b7d0c852db78e4657caecf90e9b33f8c7b8b75a4d8674cb446d5fe27f
     name: awsecho
     type: application
     urls:
@@ -35,7 +35,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-15T23:41:20.700235337+08:00"
+    created: "2022-11-08T14:13:27.584486584+08:00"
     description: A Helm chart for Kubernetes
     digest: 0899b4df4e38e64a3938c443f2016828bd8c17207ee277d66ae2e902088703a2
     name: awsecho
@@ -45,7 +45,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-15T23:41:20.698713914+08:00"
+    created: "2022-11-08T14:13:27.583752147+08:00"
     description: A Helm chart for Kubernetes
     digest: fe850736252a973f5bb67b7efe752771b8f0bbe85945207a01e8c866eb7a9c95
     name: awsecho
@@ -55,7 +55,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-15T23:41:20.697367265+08:00"
+    created: "2022-11-08T14:13:27.583103282+08:00"
     description: A Helm chart for Kubernetes
     digest: 5c7135561fa4b783a6b24bb60d4098c62c394b0cd94fb2fc29b63aa5a803eed5
     name: awsecho
@@ -66,7 +66,7 @@ entries:
   jqecho:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-08-15T23:41:20.702647246+08:00"
+    created: "2022-11-08T14:13:27.585823079+08:00"
     description: A Helm chart for Kubernetes
     digest: b974c49c81d768409ac26fc0a6822f6dabebbbb5665c16e09e8dc575c9b0519c
     name: jqecho
@@ -74,4 +74,4 @@ entries:
     urls:
     - jqecho-0.1.0.tgz
     version: 0.1.0
-generated: "2022-08-15T23:41:20.693368381+08:00"
+generated: "2022-11-08T14:13:27.578872523+08:00"
