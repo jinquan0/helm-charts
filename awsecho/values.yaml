@@ -50,7 +50,7 @@ podStaticPvc:
 
 service:
   type: ClusterIP
-  port: 1323   ## jinquan modified.
+  port: 8000   ## jinquan modified.
 
 ## jinquan modified.
 ## adapted to AWS Load Balancer Controller
