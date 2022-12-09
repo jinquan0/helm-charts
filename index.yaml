@@ -3,7 +3,7 @@ entries:
   ahdbaduit:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-08T18:40:40.8409864+08:00"
+    created: "2022-12-09T22:51:28.893630123+08:00"
     description: A Helm chart for Kubernetes
     digest: a630f928ea1e7ffbaafd48643d85fe4276d63bb139a9c17bef1c7416a2dd82ec
     name: ahdbaduit
@@ -14,7 +14,7 @@ entries:
   ahdemoapp:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-08T18:40:40.842113089+08:00"
+    created: "2022-12-09T22:51:28.894551935+08:00"
     description: A Helm chart for Kubernetes
     digest: ec6bbe93dcb05678839c988bd402a96d461da0ffdec0729bc12dcca2d056f9cd
     name: ahdemoapp
@@ -25,9 +25,9 @@ entries:
   awsecho:
   - apiVersion: v2
     appVersion: 1.22.0
-    created: "2022-11-08T18:40:40.848226565+08:00"
+    created: "2022-12-09T22:51:28.901367622+08:00"
     description: A Helm chart for Kubernetes
-    digest: 385c6f1fb607cf5a1604d593675013e5034a3a1879f36d8ac842b9e6b4104510
+    digest: 0522b4635c843679dcd8ac54f76d29f90921204528c00eb7fe9550e1d5229f77
     name: awsecho
     type: application
     urls:
@@ -35,7 +35,7 @@ entries:
     version: 0.5.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-08T18:40:40.847451136+08:00"
+    created: "2022-12-09T22:51:28.899536044+08:00"
     description: A Helm chart for Kubernetes
     digest: be6cff9b7d0c852db78e4657caecf90e9b33f8c7b8b75a4d8674cb446d5fe27f
     name: awsecho
@@ -45,7 +45,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-08T18:40:40.84617984+08:00"
+    created: "2022-12-09T22:51:28.898444519+08:00"
     description: A Helm chart for Kubernetes
     digest: 0899b4df4e38e64a3938c443f2016828bd8c17207ee277d66ae2e902088703a2
     name: awsecho
@@ -55,7 +55,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-08T18:40:40.844482533+08:00"
+    created: "2022-12-09T22:51:28.897065203+08:00"
     description: A Helm chart for Kubernetes
     digest: fe850736252a973f5bb67b7efe752771b8f0bbe85945207a01e8c866eb7a9c95
     name: awsecho
@@ -65,7 +65,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-08T18:40:40.843300633+08:00"
+    created: "2022-12-09T22:51:28.895766599+08:00"
     description: A Helm chart for Kubernetes
     digest: 5c7135561fa4b783a6b24bb60d4098c62c394b0cd94fb2fc29b63aa5a803eed5
     name: awsecho
@@ -76,7 +76,7 @@ entries:
   jqecho:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-11-08T18:40:40.848942185+08:00"
+    created: "2022-12-09T22:51:28.902139211+08:00"
     description: A Helm chart for Kubernetes
     digest: b974c49c81d768409ac26fc0a6822f6dabebbbb5665c16e09e8dc575c9b0519c
     name: jqecho
@@ -84,4 +84,15 @@ entries:
     urls:
     - jqecho-0.1.0.tgz
     version: 0.1.0
-generated: "2022-11-08T18:40:40.83971456+08:00"
+  rockylinux:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-12-09T22:51:28.902721665+08:00"
+    description: A Helm chart for Kubernetes
+    digest: 02a21802eb4832d333265626adbef6433f94c9782b59e05a74c24d134f4fcdee
+    name: rockylinux
+    type: application
+    urls:
+    - rockylinux-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-12-09T22:51:28.892273284+08:00"
