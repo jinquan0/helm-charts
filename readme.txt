@@ -13,6 +13,12 @@ helm upgrade -i solar jqcharts/awsecho --namespace myapp \
   --set image.repository=registry.cn-hangzhou.aliyuncs.com/jinquan711/solar-system \
   --set image.tag="2.1-master-build20"
 
+helm upgrade -i rockylinux jqcharts/rockylinux --namespace myapp \
+  --create-namespace \
+  --set ingress.enabled=false \
+  --set image.tag="8.6-clnts-build1"
+
+
 ###  部署无数据持久化的应用
 helm upgrade -i solar . --namespace myapp \
   --set image.repository=registry.cn-hangzhou.aliyuncs.com/jinquan711/solar-system \
