@@ -66,7 +66,7 @@ ingress:
   albcert: arn:aws-cn:iam::**************:server-certificate/wildcard_supor_com_2022  # @@ALB tls ARN
   albgroup: "is"  ## Multi-Ingress could share One AWS Application LoadBalancer which in a Group
   hosts:
-    - host: demo0.supor.com
+    - host: jq-solar.supor.com
       paths:
         - path: /
           pathType: Prefix
