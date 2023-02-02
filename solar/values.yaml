@@ -37,6 +37,9 @@ securityContext: {}
   # runAsUser: 1000
 
 ## jinquan added.
+fluentdLogging: true
+
+## jinquan added.
 liveProbe:
   enabled: true
 ## jinquan added.

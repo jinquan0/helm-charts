@@ -4,7 +4,6 @@ metadata:
   name: {{ include "solar.fullname" . }}
   labels:
     {{- include "solar.labels" . | nindent 4 }}
-    logging: "true"   ## jinquan added.
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
