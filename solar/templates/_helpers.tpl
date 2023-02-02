@@ -40,7 +40,9 @@ helm.sh/chart: {{ include "solar.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-mylogging: {{ .Values.fluentdLogging }}
+{{- if .Values.fluentdLogging.enabled }}
+mylogging: true
+{{- end }}
 {{- end }}
 
 {{/*
