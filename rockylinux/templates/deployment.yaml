@@ -20,17 +20,27 @@ spec:
       labels:
         {{- include "rockylinux.selectorLabels" . | nindent 8 }}
     spec:
-      #{{- if .Values.nodeAffinity.enabled }}  ## jinquan added.
-      #affinity:
-      #  nodeAffinity:
-      #    requiredDuringSchedulingIgnoredDuringExecution:
-      #      nodeSelectorTerms:
-      #      - matchExpressions:
-      #        - key: {{ .Values.nodeAffinity.matchKey }}
-      #          operator: In
-      #          values:
-      #          - {{ .Values.nodeAffinity.matchValue }}
-      #{{- end }}
+      {{- if .Values.awsSpotAffinity.enabled }}  ## jinquan added.
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: eks.amazonaws.com/capacityType
+                operator: In
+                values:
+                - spot
+      {{ else }}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: eks.amazonaws.com/capacityType
+                operator: In
+                values:
+                - ON_DEMAND
+      {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
