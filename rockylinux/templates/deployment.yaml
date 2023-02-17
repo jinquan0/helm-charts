@@ -20,17 +20,17 @@ spec:
       labels:
         {{- include "rockylinux.selectorLabels" . | nindent 8 }}
     spec:
-      {{- if .Values.nodeAffinity.enabled }}  ## jinquan added.
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: {{ .Values.nodeAffinity.matchKey }}
-                operator: In
-                values:
-                - {{ .Values.nodeAffinity.matchValue }}
-      {{- end }}
+      #{{- if .Values.nodeAffinity.enabled }}  ## jinquan added.
+      #affinity:
+      #  nodeAffinity:
+      #    requiredDuringSchedulingIgnoredDuringExecution:
+      #      nodeSelectorTerms:
+      #      - matchExpressions:
+      #        - key: {{ .Values.nodeAffinity.matchKey }}
+      #          operator: In
+      #          values:
+      #          - {{ .Values.nodeAffinity.matchValue }}
+      #{{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}

@@ -37,10 +37,10 @@ securityContext: {}
   # runAsUser: 1000
 
 ## jinquan added.
-nodeAffinity:
-  enabled: true
-  matchKey: eks.amazonaws.com/capacityType
-  matchValue: spot
+#nodeAffinity:
+#  enabled: true
+#  matchKey: eks.amazonaws.com/capacityType
+#  matchValue: spot
 
 service:
   type: ClusterIP
@@ -78,7 +78,16 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-nodeSelector: {}
+nodeSelector:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: eks.amazonaws.com/capacityType
+            operator: In
+            values:
+            - spot
 
 tolerations: []
 
