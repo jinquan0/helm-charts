@@ -20,6 +20,17 @@ spec:
       labels:
         {{- include "solar.selectorLabels" . | nindent 8 }}
     spec:
+      {{- if .Values.nodeAffinity.enabled }}  ## jinquan added.
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: {{ .Values.nodeAffinity.matchKey }}
+                operator: In
+                values:
+                - {{ .Values.nodeAffinity.matchValue }}
+      {{- end }}
       terminationGracePeriodSeconds: 0  ## jinquan added.
       {{- if .Values.podStaticPvc.enabled }}  ## jinquan added.
       volumes:

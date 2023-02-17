@@ -37,6 +37,12 @@ securityContext: {}
   # runAsUser: 1000
 
 ## jinquan added.
+nodeAffinity:
+  enabled: true
+  matchKey: eks.amazonaws.com/capacityType
+  matchValue: spot
+
+## jinquan added.
 fluentdLogging: 
   enabled: true
 
