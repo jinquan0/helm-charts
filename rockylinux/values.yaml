@@ -36,6 +36,12 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+## jinquan added.
+nodeAffinity:
+  enabled: true
+  matchKey: eks.amazonaws.com/capacityType
+  matchValue: spot
+
 service:
   type: ClusterIP
   port: 22
