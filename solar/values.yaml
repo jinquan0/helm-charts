@@ -37,9 +37,11 @@ securityContext: {}
   # runAsUser: 1000
 
 ## jinquan added.
-nodeAffinity:
+awsEC2Affinity:
   enabled: true
-  matchKey: eks.amazonaws.com/capacityType
+  # matchKey: eks.amazonaws.com/capacityType  ## Common NodeGroup
+  # matchValue: ON_DEMAND
+  matchKey: karpenter.sh/capacity-type  ## Karpenter AutoScale Group
   matchValue: spot
 
 ## jinquan added.
