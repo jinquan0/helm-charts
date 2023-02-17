@@ -79,15 +79,7 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 nodeSelector:
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: eks.amazonaws.com/capacityType
-            operator: In
-            values:
-            - spot
+  eks.amazonaws.com/capacityType: spot
 
 tolerations: []
 
