@@ -7,22 +7,30 @@ helm pull jqcharts/awsecho
 tar -xvf awsecho-0.x.0.tgz
 
 ### 无ingress, 无数据持久化的应用
-helm upgrade -i solar jqcharts/awsecho --namespace myapp \
+helm upgrade -i solar jqcharts/solar --namespace myapp \
   --create-namespace \
   --set ingress.enabled=false \
   --set image.repository=registry.cn-hangzhou.aliyuncs.com/jinquan711/solar-system \
-  --set image.tag="2.1-master-build20"
+  --set image.tag="2.1-master-build24"
 
+# rockylinux
 helm upgrade -i rockylinux jqcharts/rockylinux --namespace myapp \
   --create-namespace \
   --set ingress.enabled=false \
-  --set image.tag="8.6-clnts-build1"
+  --set image.tag="8.6-clnts-build3"
+
+helm upgrade -i rockylinux-ondemand jqcharts/rockylinux --namespace myapp \
+  --create-namespace \
+  --set awsEC2Affinity.matchKey=eks.amazonaws.com/capacityType \
+  --set awsEC2Affinity.matchValue=ON_DEMAND \
+  --set ingress.enabled=false \
+  --set image.tag="8.6-clnts-build3"
 
 
 ###  部署无数据持久化的应用
 helm upgrade -i solar . --namespace myapp \
   --set image.repository=registry.cn-hangzhou.aliyuncs.com/jinquan711/solar-system \
-  --set image.tag="2.1-master-build20" \
+  --set image.tag="2.1-master-build24" \
   --set ingress.albsubnets[0].id=subnet-04b55239c3ca6fa44,ingress.albsubnets[1].id=subnet-0c8ab305b476722ae,ingress.albsubnets[2].id=subnet-0ba834929a282e111 \
   --set ingress.albcert=arn:aws-cn:iam::523497193792:server-certificate/wildcard_supor_com_2022 \
   --set ingress.albgroup="is" \
