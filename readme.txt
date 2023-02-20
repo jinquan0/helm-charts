@@ -9,6 +9,7 @@ tar -xvf awsecho-0.x.0.tgz
 ### 无ingress, 无数据持久化的应用
 helm upgrade -i solar jqcharts/solar --namespace myapp \
   --create-namespace \
+  --set awsEC2Affinity.enabled=false \
   --set ingress.enabled=false \
   --set image.repository=registry.cn-hangzhou.aliyuncs.com/jinquan711/solar-system \
   --set image.tag="2.1-master-build24"
@@ -16,6 +17,7 @@ helm upgrade -i solar jqcharts/solar --namespace myapp \
 # rockylinux
 helm upgrade -i rockylinux jqcharts/rockylinux --namespace myapp \
   --create-namespace \
+  --set awsEC2Affinity.enabled=false \
   --set ingress.enabled=false \
   --set image.tag="8.6-clnts-build3"
 
