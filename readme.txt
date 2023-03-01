@@ -19,14 +19,14 @@ helm upgrade -i rockylinux jqcharts/rockylinux --namespace myapp \
   --create-namespace \
   --set awsEC2Affinity.enabled=false \
   --set ingress.enabled=false \
-  --set image.tag="8.6-clnts-build3"
+  --set image.tag="8.6-clnts-build4"
 
 helm upgrade -i rockylinux-ondemand jqcharts/rockylinux --namespace myapp \
   --create-namespace \
   --set awsEC2Affinity.matchKey=eks.amazonaws.com/capacityType \
   --set awsEC2Affinity.matchValue=ON_DEMAND \
   --set ingress.enabled=false \
-  --set image.tag="8.6-clnts-build3"
+  --set image.tag="8.6-clnts-build4"
 
 
 ###  部署无数据持久化的应用
