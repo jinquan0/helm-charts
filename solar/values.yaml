@@ -8,7 +8,7 @@ image:
   repository: registry.cn-hangzhou.aliyuncs.com/jinquan711/solar-system
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "2.1-master-build21"
+  tag: "2.1-master-build24"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -54,6 +54,20 @@ liveProbe:
 ## jinquan added.
 readyProbe:
   enabled: true
+
+## jinquan added. 
+## solar routine config.yaml
+appConfig:
+  enabled: false
+  RoutineDelayMs: 10
+  Mysql:
+    Host: "EngineLB-3e73fd6a3c003cc1.elb.cn-northwest-1.amazonaws.com.cn"
+    Port: "3307"
+    User: "root"
+    Pass: "root"
+    Sslca: "null"
+    DB: "test"
+
 
 ## jinquan added.
 efsId: "fs-******8c9453d774f"    ## @AWS EFS fileSystemId: fs-***

@@ -1,0 +1,12 @@
+{{- if .Values.appConfig.enabled -}}
+{{- $fullName := include "solar.fullname" . -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "solar.labels" . | nindent 4 }}
+data:
+  config.yaml: |
+    {{- include "appconfig.data" . | nindent 4 }}
+{{- end }}

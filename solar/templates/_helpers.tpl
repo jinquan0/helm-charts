@@ -142,3 +142,18 @@ alb.ingress.kubernetes.io/subnets: {{ include "aws.albsubnets" . | trimSuffix ",
 alb.ingress.kubernetes.io/certificate-arn: {{ .Values.ingress.albcert }}
 alb.ingress.kubernetes.io/group.name: {{ .Values.ingress.albgroup }}     ## Multi-Ingress could share One AWS Application LoadBalancer which in a Group
 {{- end }}
+
+
+{{/*
+application solar, configmap data.
+*/}}
+{{- define "appconfig.data" -}}
+routinedelayms: {{ .Values.appConfig.RoutineDelayMs }}
+mysql:
+  host: {{ .Values.appConfig.Mysql.Host }}
+  port: {{ .Values.appConfig.Mysql.Port }}
+  user: {{ .Values.appConfig.Mysql.User }}
+  pass: {{ .Values.appConfig.Mysql.Pass }}
+  sslca: {{ .Values.appConfig.Mysql.Sslca }}
+  db: {{ .Values.appConfig.Mysql.DB }}
+{{- end }}

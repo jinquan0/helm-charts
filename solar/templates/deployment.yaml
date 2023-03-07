@@ -32,6 +32,12 @@ spec:
                 - {{ .Values.awsEC2Affinity.matchValue }}
       {{- end }}
       terminationGracePeriodSeconds: 0  ## jinquan added.
+      {{- if .Values.appConfig.enabled }}  ## jinquan added.
+      volumes:
+        - name: app-config
+          configMap:
+            name: {{ include "solar.fullname" . }}
+      {{- end }}
       {{- if .Values.podStaticPvc.enabled }}  ## jinquan added.
       volumes:
       - name: datavol
@@ -51,8 +57,15 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if .Values.podStaticPvc.enabled }}  ## jinquan added.
+          {{- if or .Values.appConfig.enabled .Values.podStaticPvc.enabled }}  ## jinquan added.
           volumeMounts:
+          {{- end }}
+          {{- if .Values.appConfig.enabled }}  ## jinquan added.
+          - name: app-config
+            mountPath: /app/config.yaml
+            subPath: config.yaml
+          {{- end }}
+          {{- if .Values.podStaticPvc.enabled }}  ## jinquan added.
           - name: datavol
             mountPath: /app/assets   ## echo-server location
           {{- end }}
