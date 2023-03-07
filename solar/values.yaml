@@ -8,7 +8,7 @@ image:
   repository: registry.cn-hangzhou.aliyuncs.com/jinquan711/solar-system
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "2.1-master-build25"
+  tag: "2.1-master-build30"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -65,7 +65,7 @@ appConfig:
     Port: "3307"
     User: "root"
     Pass: "root"
-    Sslca: "null"
+    Sslca: "none"
     DB: "test"
 
 
