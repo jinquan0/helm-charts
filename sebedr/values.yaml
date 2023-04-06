@@ -37,9 +37,9 @@ securityContext:
   # runAsNonRoot: true
   runAsUser: 0
 
-service: {}
-  #type: ClusterIP
-  #port: 80
+service:
+  type: ClusterIP
+  port: 222
 
 ingress:
   enabled: false
