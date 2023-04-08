@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "logetl.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "logetl.fullname" . }}:5044']
   restartPolicy: Never

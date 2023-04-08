@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "logetl.fullname" . }}
+  name: {{ .Values.etl.Name }} #{{ include "logetl.fullname" . }}
   labels:
     {{- include "logetl.labels" . | nindent 4 }}
 spec:
@@ -27,12 +27,34 @@ spec:
       serviceAccountName: {{ include "logetl.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+      - name: config
+        configMap:
+          name: logetl-cm-{{ .Values.etl.Name }}
+          items:
+          - key: logstash.yml
+            path: logstash.yml
+      - name: pipeline
+        configMap:
+          name: logetl-cm-{{ .Values.etl.Name }}
+          items:
+          - key: logstash.conf
+            path: logstash.conf
+      hostAliases:
+          - {ip: "172.24.20.220", hostnames: ["kafka01"]}
+          - {ip: "172.24.20.221", hostnames: ["kafka02"]}
+          - {ip: "172.24.20.222", hostnames: ["kafka03"]}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+          - name: config
+            mountPath: /usr/share/logstash/config
+          - name: pipeline
+            mountPath: /usr/share/logstash/pipeline
           ports:
             - containerPort: 5044
           resources:

@@ -6,6 +6,15 @@ helm search repo jqcharts/solar
 helm pull jqcharts/solar
 tar -xvf solar-0.x.0.tgz
 
+### logstash ETL instance
+helm install logetl-test-jinquan-0 jqcharts/logetl --namespace infra --create-namespace \
+  --set replicaCount=1 \
+  --set etl.Name=mytest0 \
+  --set etl.Kafka.Topic=test-jinquan-0 \
+  --set etl.Kafka.ConsumerGroup=jinquan \
+  --set etl.ElasticSearch.Index=test-jinquan-0-%{+yyyy.MM}
+
+
 ### rockylinux: 不做nodeAffinity
 helm upgrade -i rockylinux jqcharts/rockylinux --namespace myapp \
   --create-namespace \

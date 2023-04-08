@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logetl-cm-{{ .Values.etl.Name }}
+  labels:
+    {{- include "logetl.labels" . | nindent 4 }}
+data:
+  logstash.yml: |
+    {{- include "logstash.yml" . | nindent 4 }}
+  logstash.conf: |
+    {{- include "logstash.conf" . | nindent 4 }}

@@ -36,10 +36,21 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-service:
-  type: ClusterIP
-  port: 5044
+#service:
+#  type: ClusterIP
+#  port: 5044
 
+## jinquan added.
+etl:
+  Name: "test-jinquan-0"
+  Kafka:
+    Topic: "test-jinquan-0"
+    ConsumerGroup: "jinquan"
+  ElasticSearch: 
+    #Host: '"172.24.20.217:9200","172.24.20.218:9200","172.24.20.219:9200"'
+    Index: "test-jinquan-0-%{+yyyy.MM}"
+    User: "jinquan"
+    Pass: "passw0rd"
 
 
 ingress:
@@ -82,13 +93,13 @@ nodeSelector: {}
 
 tolerations: []
 
-affinity:
-  podAntiAffinity:  # Pod工作负载反亲和
-    requiredDuringSchedulingIgnoredDuringExecution:  # [必须满足]如下条件
-      - topologyKey: kubernetes.io/hostname  # 在节点上起作用
-        namespaces:
-          - infra                                                                 ## must modify
-        labelSelector:  # 选择Pod的标签，与工作负载本身反亲和
-          matchExpressions:
-            - {key: app, operator: In, values: ["logetl-prod-bd-xcxsc-ingngx"]}   ## must modify
-            - {key: ctlr, operator: In, values: ["pod-antiaffinity-required"]}
+affinity: {}
+#  podAntiAffinity:  # Pod工作负载反亲和
+#    requiredDuringSchedulingIgnoredDuringExecution:  # [必须满足]如下条件
+#      - topologyKey: kubernetes.io/hostname  # 在节点上起作用
+#        namespaces:
+#          - infra                                                                 ## must modify
+#        labelSelector:  # 选择Pod的标签，与工作负载本身反亲和
+#          matchExpressions:
+#            - {key: app, operator: In, values: ["logetl-prod-bd-xcxsc-ingngx"]}   ## must modify
+#            - {key: ctlr, operator: In, values: ["pod-antiaffinity-required"]}}

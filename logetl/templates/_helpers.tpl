@@ -60,3 +60,41 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+
+{{/*
+logstash configuration.
+*/}}
+{{- define "logstash.yml" -}}
+http.host: "0.0.0.0"
+path.config: /usr/share/logstash/pipeline
+{{- end }}
+
+{{/*
+logstash etl pipeline.
+*/}}
+{{- define "logstash.conf" -}}
+input {
+  kafka {
+    bootstrap_servers => "172.24.20.220:9092,172.24.20.221:9092,172.24.20.222:9092"
+    topics => ["{{ .Values.etl.Kafka.Topic }}"]  ## must modify
+    codec => json
+    consumer_threads => 1
+    group_id => "{{ .Values.etl.Kafka.ConsumerGroup }}"  ## must modify
+  }
+}
+filter{
+  json { 
+      source => "log"
+  }
+}
+output {
+  #stdout { }
+  elasticsearch {
+    hosts=>["172.24.20.217:9200","172.24.20.218:9200","172.24.20.219:9200"]
+    index=>"{{ .Values.etl.ElasticSearch.Index }}"  ## must modity
+    user => ["{{ .Values.etl.ElasticSearch.User }}"]  ## must modify
+    password => ["{{ .Values.etl.ElasticSearch.Pass }}"]  ## must modify
+  }
+}
+{{- end }}
