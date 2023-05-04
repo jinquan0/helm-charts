@@ -32,14 +32,15 @@ spec:
         configMap:
           name: logetl-cm-{{ .Values.etl.Name }}
           items:
-          - key: logstash.yml
-            path: logstash.yml
+          - {key: logstash.yml, path: logstash.yml}
+          - {key: pipelines.yml, path: pipelines.yml}
       - name: pipeline
         configMap:
           name: logetl-cm-{{ .Values.etl.Name }}
           items:
-          - key: logstash.conf
-            path: logstash.conf
+          - {key: stream-input.conf, path: stream-input.conf}
+          - {key: stream-filter.conf, path: stream-filter.conf}
+          - {key: stream-output.conf, path: stream-output.conf}
       hostAliases:
           - {ip: "172.24.20.220", hostnames: ["kafka01"]}
           - {ip: "172.24.20.221", hostnames: ["kafka02"]}

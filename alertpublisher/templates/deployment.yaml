@@ -37,14 +37,14 @@ spec:
             - name: http
               containerPort: 1323    # jinquan modified.
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /api/v1/healthy  # jinquan modified.
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /api/v1/healthy  # jinquan modified.
-              port: http
+          #livenessProbe:
+          #  httpGet:
+          #    path: /api/v1/healthy  # jinquan modified.
+          #    port: http
+          #readinessProbe:
+          #  httpGet:
+          #    path: /api/v1/healthy  # jinquan modified.
+          #    port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

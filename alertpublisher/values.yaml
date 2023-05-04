@@ -8,7 +8,7 @@ image:
   repository: registry.cn-hangzhou.aliyuncs.com/jinquan711/alertpublisher
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.0-alpha-master-build7"
+  tag: "1.0-alpha-master-build18"
 
 imagePullSecrets: []
 nameOverride: ""

@@ -63,7 +63,7 @@ Create the name of the service account to use
 
 
 {{/*
-logstash configuration.
+logstash configuration file: /usr/share/logstash/pipeline/logstash.yml
 */}}
 {{- define "logstash.yml" -}}
 http.host: "0.0.0.0"
@@ -71,9 +71,23 @@ path.config: /usr/share/logstash/pipeline
 {{- end }}
 
 {{/*
-logstash etl pipeline.
+logstash multi-pipelines definition file: /usr/share/logstash/pipeline/pipelines.yml
 */}}
-{{- define "logstash.conf" -}}
+{{- define "pipelines.yml" -}}
+- pipeline.id: stream-input
+  path.config: "/usr/share/logstash/pipeline/stream-input.conf"
+- pipeline.id: stream-filter
+  # from external filter.conf file through 'helm --set-file myfilter=*.conf'
+  path.config: "/usr/share/logstash/pipeline/stream-filter.conf"
+- pipeline.id: stream-output
+  path.config: "/usr/share/logstash/pipeline/stream-output.conf"
+{{- end }}
+
+
+{{/*
+logstash ETL-Input configuration file.
+*/}}
+{{- define "stream-input.conf" -}}
 input {
   kafka {
     bootstrap_servers => "172.24.20.220:9092,172.24.20.221:9092,172.24.20.222:9092"
@@ -83,11 +97,13 @@ input {
     group_id => "{{ .Values.etl.Kafka.ConsumerGroup }}"  ## must modify
   }
 }
-filter{
-  json { 
-      source => "log"
-  }
-}
+{{- end }}
+
+
+{{/*
+logstash ETL-Output configuration file.
+*/}}
+{{- define "stream-output.conf" -}}
 output {
   #stdout { }
   elasticsearch {
