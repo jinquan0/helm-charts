@@ -81,3 +81,7 @@ helm upgrade -i demo1 . --namespace myapp \
 
 # echo-server 拉取测试web页面
 kubectl exec -ti pod/demo1-awsecho-xxxxxxxxxx-***** -n myapp -- git clone https://github.com/jinquan0/is-demo-html.git "/app/assets/"
+
+
+## 灰度发布 canary-demo服务
+helm install canary . --namespace myapp --create-namespace --set fullnameOverride=canary
