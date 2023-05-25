@@ -4,35 +4,35 @@ helm install logetl-prod-bd-xcxsc-admin . --namespace infra --create-namespace \
   --set etl.Name=logetl-prod-bd-xcxsc-admin \
   --set etl.Kafka.Topic=prod-bd-xcxsc-admin \
   --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
-  --set etl.ElasticSearch.Index=prod-bd-xcxsc-admin-%{+yyyy.MM}
+  --set etl.ElasticSearch.Index=prod-bd-xcxsc-admin-%{+MMyyyy}
 
 helm install logetl-prod-bd-xcxsc-api . --namespace infra --create-namespace \
   --set replicaCount=3 \
   --set etl.Name=logetl-prod-bd-xcxsc-api \
   --set etl.Kafka.Topic=prod-bd-xcxsc-api \
   --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
-  --set etl.ElasticSearch.Index=prod-bd-xcxsc-api-%{+yyyy.MM}
+  --set etl.ElasticSearch.Index=prod-bd-xcxsc-api-%{+MMyyyy}
 
 helm install logetl-prod-bd-xcxsc-messenger . --namespace infra --create-namespace \
   --set replicaCount=3 \
   --set etl.Name=logetl-prod-bd-xcxsc-messenger \
   --set etl.Kafka.Topic=prod-bd-xcxsc-messenger \
   --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
-  --set etl.ElasticSearch.Index=prod-bd-xcxsc-messenger-%{+yyyy.MM}
+  --set etl.ElasticSearch.Index=prod-bd-xcxsc-messenger-%{+MMyyyy}
 
 helm install logetl-prod-bd-xcxsc-cronjob . --namespace infra --create-namespace \
   --set replicaCount=1 \
   --set etl.Name=logetl-prod-bd-xcxsc-cronjob \
   --set etl.Kafka.Topic=prod-bd-xcxsc-cronjob \
   --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
-  --set etl.ElasticSearch.Index=prod-bd-xcxsc-cronjob-%{+yyyy.MM}
+  --set etl.ElasticSearch.Index=prod-bd-xcxsc-cronjob-%{+MMyyyy}
 
 helm install logetl-prod-bd-xcxsc-ingngx . --namespace infra --create-namespace \
   --set replicaCount=3 \
   --set etl.Name=logetl-prod-bd-xcxsc-ingngx \
   --set etl.Kafka.Topic=prod-bd-xcxsc-ingngx \
   --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
-  --set etl.ElasticSearch.Index=logstash-prod-bd-xcxsc-ingngx-%{+yyyy.MM}
+  --set etl.ElasticSearch.Index=logstash-prod-bd-xcxsc-ingngx-%{+MMyyyy}
 
 
 ## --------------- dynamic CRM ------------------
@@ -41,18 +41,18 @@ helm install logetl-prod-crm-dynamiccrm-cw . --namespace infra --create-namespac
   --set etl.Name=logetl-prod-crm-dynamiccrm-cw \
   --set etl.Kafka.Topic=prod-crm-dynamiccrm-cw \
   --set etl.Kafka.ConsumerGroup=prod-crm-dynamiccrm \
-  --set etl.ElasticSearch.Index=prod-crm-dynamiccrm-cw-%{+yyyy.MM}
+  --set etl.ElasticSearch.Index=prod-crm-dynamiccrm-cw-%{+MMyyyy}
 
 helm install logetl-prod-crm-dynamiccrm-sda . --namespace infra --create-namespace \
   --set replicaCount=3 \
   --set etl.Name=logetl-prod-crm-dynamiccrm-sda \
   --set etl.Kafka.Topic=prod-crm-dynamiccrm-sda \
   --set etl.Kafka.ConsumerGroup=prod-crm-dynamiccrm \
-  --set etl.ElasticSearch.Index=prod-crm-dynamiccrm-sda-%{+yyyy.MM}
+  --set etl.ElasticSearch.Index=prod-crm-dynamiccrm-sda-%{+MMyyyy}
 
 helm install logetl-prod-crm-dynamiccrm-lka . --namespace infra --create-namespace \
   --set replicaCount=3 \
   --set etl.Name=logetl-prod-crm-dynamiccrm-lka \
   --set etl.Kafka.Topic=prod-crm-dynamiccrm-lka \
   --set etl.Kafka.ConsumerGroup=prod-crm-dynamiccrm \
-  --set etl.ElasticSearch.Index=prod-crm-dynamiccrm-lka-%{+yyyy.MM}
+  --set etl.ElasticSearch.Index=prod-crm-dynamiccrm-lka-%{+MMyyyy}
