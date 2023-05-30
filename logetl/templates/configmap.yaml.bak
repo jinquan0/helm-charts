@@ -12,6 +12,6 @@ data:
   stream-input.conf: |
     {{- include "stream-input.conf" . | nindent 4 }}
   stream-filter.conf: |
-    {{ .Values.etl.StreamFilter | nindent 4 }}
+{{ .Files.Get "etl/stream-filter.conf" | indent 4 }}
   stream-output.conf: |
     {{- include "stream-output.conf" . | nindent 4 }}

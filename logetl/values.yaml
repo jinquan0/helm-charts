@@ -46,12 +46,17 @@ etl:
   Kafka:
     Topic: "test-jinquan-0"
     ConsumerGroup: "jinquan"
+  StreamFilter: |-
+    filter{
+      json { 
+          source => "log"
+      }
+    }
   ElasticSearch: 
     #Host: '"172.24.20.217:9200","172.24.20.218:9200","172.24.20.219:9200"'
     Index: "test-jinquan-0-%{+MMyyyy}"
     User: "logetl"
     Pass: "passw0rd"
-
 
 ingress:
   enabled: false
