@@ -41,6 +41,11 @@ spec:
           - {key: stream-input.conf, path: stream-input.conf}
           - {key: stream-filter.conf, path: stream-filter.conf}
           - {key: stream-output.conf, path: stream-output.conf}
+      {{- if .Values.PodCephPvc.enabled }}  ## jinquan added.
+      - name: mydata
+        persistentVolumeClaim:
+          claimName: {{ .Values.etl.Name }}
+      {{- end }}
       hostAliases:
           - {ip: "172.24.20.220", hostnames: ["kafka01"]}
           - {ip: "172.24.20.221", hostnames: ["kafka02"]}
@@ -56,6 +61,10 @@ spec:
             mountPath: /usr/share/logstash/config
           - name: pipeline
             mountPath: /usr/share/logstash/pipeline
+          {{- if .Values.PodCephPvc.enabled }}  ## jinquan added.
+          - name: mydata
+            mountPath: /usr/share/logstash/mydata
+          {{- end }}
           ports:
             - containerPort: 5044
           resources:

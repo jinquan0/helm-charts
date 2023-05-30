@@ -1,0 +1,11 @@
+### nerdctl build --rm -t docker-hub.supor.com/infra/logstash:7.17.3-geoip -f ./logstash.build .
+
+FROM docker-hub.supor.com/infra/logstash:7.17.3
+MAINTAINER jinquan jinquan7@foxmail.com
+LABEL Description="logstash with GeoLite2-City.mmdb"
+
+USER root
+# RUN mkdir -p /usr/share/logstash/geoip
+COPY ./GeoLite2-City.mmdb /usr/share/logstash/geoip/
+RUN \
+  chown logstash:root -R /usr/share/logstash/geoip;

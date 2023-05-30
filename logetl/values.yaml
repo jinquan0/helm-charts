@@ -58,6 +58,13 @@ etl:
     User: "logetl"
     Pass: "passw0rd"
 
+## jinquan added.
+PodCephPvc:
+  enabled: false
+  Capacity: 10Mi
+  StorageClass: "csi-rbd-sc"
+
+
 ingress:
   enabled: false
   className: ""

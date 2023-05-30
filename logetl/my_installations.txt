@@ -1,3 +1,21 @@
+## --------------------------------- demo with ceph pvc ---------------------------------
+helm install logetl-test-jinquan-0 . \
+  --namespace infra --create-namespace \
+  --set replicaCount=1 \
+  --set PodCephPvc.enabled=true \
+  --set PodCephPvc.Capacity=30Mi \
+  --set PodCephPvc.StorageClass="csi-rbd-sc" \
+  --set-file etl.StreamFilter="./etl/filters/common.conf"
+
+## --------- ingress nginx controller demo with MAXMIND GeoLite2-City.mmdb  ---------
+helm install logetl-test-jinquan-0 . \
+  --namespace infra --create-namespace \
+  --set image.repository="docker-hub.supor.com/infra/logstash" \
+  --set image.tag="7.17.3-geoip" \
+  --set replicaCount=1 \
+  --set-file etl.StreamFilter="./etl/filters/ingngx-geocity.conf"
+
+
 ## ------------------------------------- AWS xcxsc -------------------------------------
 helm install logetl-prod-bd-xcxsc-admin . --namespace infra --create-namespace \
   --set replicaCount=3 \
@@ -33,11 +51,13 @@ helm install logetl-prod-bd-xcxsc-cronjob . --namespace infra --create-namespace
 
 helm install logetl-prod-bd-xcxsc-ingngx . --namespace infra --create-namespace \
   --set replicaCount=3 \
+  --set image.repository="docker-hub.supor.com/infra/logstash" \
+  --set image.tag="7.17.3-geoip" \
   --set etl.Name=logetl-prod-bd-xcxsc-ingngx \
   --set etl.Kafka.Topic=prod-bd-xcxsc-ingngx \
   --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
   --set etl.ElasticSearch.Index=logstash-prod-bd-xcxsc-ingngx-%{+MMyyyy} \
-  --set-file etl.StreamFilter="./etl/filters/ingngx.conf"
+  --set-file etl.StreamFilter="./etl/filters/ingngx-geocity.conf"
 
 
 ## ------------------------------- dynamic CRM --------------------------------------

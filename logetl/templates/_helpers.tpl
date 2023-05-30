@@ -114,3 +114,28 @@ output {
   }
 }
 {{- end }}
+
+
+{{/*
+  Create Ceph PersistentVolumeClaim 
+*/}}
+{{- define "create.ceph.pvc" -}}
+{{- if .Values.PodCephPvc.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Values.etl.Name }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: {{ .Values.PodCephPvc.Capacity }}
+  storageClassName: {{ .Values.PodCephPvc.StorageClass }}
+{{- else }}
+{{/*
+   don't create pvc & pv
+*/}}
+{{- end }}
+{{- end }}
