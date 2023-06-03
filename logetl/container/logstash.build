@@ -9,3 +9,5 @@ USER root
 COPY ./GeoLite2-City.mmdb /usr/share/logstash/geoip/
 RUN \
   chown logstash:root -R /usr/share/logstash/geoip;
+
+USER logstash

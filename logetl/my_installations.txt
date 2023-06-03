@@ -13,8 +13,10 @@ helm install logetl-test-jinquan-0 . \
   --set image.repository="docker-hub.supor.com/infra/logstash" \
   --set image.tag="7.17.3-geoip" \
   --set replicaCount=1 \
-  --set-file etl.StreamFilter="./etl/filters/ingngx-geocity.conf"
-
+  --set etl.Kafka.Topic=prod-bd-xcxsc-ingngx \
+  --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
+  --set-file etl.StreamFilter="./etl/filters/ingngx-geocity.conf" \
+  --set etl.StreamOutput.debugconsole.enabled=true
 
 ## ------------------------------------- AWS xcxsc -------------------------------------
 helm install logetl-prod-bd-xcxsc-admin . --namespace infra --create-namespace \
@@ -49,6 +51,7 @@ helm install logetl-prod-bd-xcxsc-cronjob . --namespace infra --create-namespace
   --set etl.ElasticSearch.Index=prod-bd-xcxsc-cronjob-%{+MMyyyy} \
   --set-file etl.StreamFilter="./etl/filters/aws-xcxsc-app.conf"
 
+
 helm install logetl-prod-bd-xcxsc-ingngx . --namespace infra --create-namespace \
   --set replicaCount=3 \
   --set image.repository="docker-hub.supor.com/infra/logstash" \
@@ -56,8 +59,24 @@ helm install logetl-prod-bd-xcxsc-ingngx . --namespace infra --create-namespace 
   --set etl.Name=logetl-prod-bd-xcxsc-ingngx \
   --set etl.Kafka.Topic=prod-bd-xcxsc-ingngx \
   --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
-  --set etl.ElasticSearch.Index=logstash-prod-bd-xcxsc-ingngx-%{+MMyyyy} \
-  --set-file etl.StreamFilter="./etl/filters/ingngx-geocity.conf"
+  --set-file etl.StreamFilter="./etl/filters/ingngx-geocity.conf" \
+  --set etl.StreamOutput.debugconsole.enabled=false \
+  --set etl.StreamOutput.elasticsearch.enabled=true \
+  --set etl.StreamOutput.elasticsearch.Index=logstash-prod-bd-xcxsc-ingngx-%{+MMyyyy}
+
+## 更新 ingress-nginx filter
+helm upgrade logetl-prod-bd-xcxsc-ingngx . --namespace infra --create-namespace \
+  --set replicaCount=3 \
+  --set image.repository="docker-hub.supor.com/infra/logstash" \
+  --set image.tag="7.17.3-geoip" \
+  --set etl.Name=logetl-prod-bd-xcxsc-ingngx \
+  --set etl.Kafka.Topic=prod-bd-xcxsc-ingngx \
+  --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
+  --set-file etl.StreamFilter="./etl/filters/ingngx-geocity.conf" \
+  --set etl.StreamOutput.debugconsole.enabled=false \
+  --set etl.StreamOutput.elasticsearch.enabled=true \
+  --set etl.StreamOutput.elasticsearch.Index=logstash-prod-bd-xcxsc-ingngx-%{+MMyyyy}
+
 
 
 ## ------------------------------- dynamic CRM --------------------------------------

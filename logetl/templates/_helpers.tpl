@@ -104,15 +104,21 @@ input {
 logstash ETL-Output configuration file.
 */}}
 {{- define "stream-output.conf" -}}
+{{- if .Values.etl.StreamOutput.debugconsole.enabled }}
 output {
-  #stdout { }
+  stdout { }
+}
+{{- end }}
+{{- if .Values.etl.StreamOutput.elasticsearch.enabled }}
+output {
   elasticsearch {
     hosts=>["172.24.20.217:9200","172.24.20.218:9200","172.24.20.219:9200"]
-    index=>"{{ .Values.etl.ElasticSearch.Index }}"  ## must modity
-    user => ["{{ .Values.etl.ElasticSearch.User }}"]  ## must modify
-    password => ["{{ .Values.etl.ElasticSearch.Pass }}"]  ## must modify
+    index=>"{{ .Values.etl.StreamOutput.elasticsearch.Index }}"        # must modity
+    user => ["{{ .Values.etl.StreamOutput.elasticsearch.User }}"]      # must modify
+    password => ["{{ .Values.etl.StreamOutput.elasticsearch.Pass }}"]  # must modify
   }
 }
+{{- end }}
 {{- end }}
 
 
