@@ -129,6 +129,35 @@ helm install logetl-prod-crm-dynamiccrm-lka . --namespace infra --create-namespa
   --set-file etl.StreamFilter="./etl/filters/crm-app.conf"
 
 
+## ---------------------------------- AWS WAF log ---------------------------------------
+## 部署 kafka 消费 etl, input阶段不使用 codec, 日志stream直通到filter
+# etl console 测试
+helm install logetl-prod-bd-xcxsc-waflog . --namespace infra --create-namespace \
+  --set replicaCount=3 \
+  --set image.repository="docker-hub.supor.com/infra/logstash" \
+  --set image.tag="7.17.3-geoip" \
+  --set etl.Name=logetl-prod-bd-xcxsc-waflog \
+  --set etl.Kafka.Topic=prod-bd-xcxsc-waflog \
+  --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
+  --set etl.StreamInput.codecjson.enabled=false \
+  --set-file etl.StreamFilter="./etl/filters/awswaf.conf" \
+  --set etl.StreamOutput.debugconsole.enabled=true
+
+# etl 写入elasticsearch
+helm install logetl-prod-bd-xcxsc-waflog . --namespace infra --create-namespace \
+  --set replicaCount=3 \
+  --set image.repository="docker-hub.supor.com/infra/logstash" \
+  --set image.tag="7.17.3-geoip" \
+  --set etl.Name=logetl-prod-bd-xcxsc-waflog \
+  --set etl.Kafka.Topic=prod-bd-xcxsc-waflog \
+  --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
+  --set etl.StreamInput.codecjson.enabled=false \
+  --set-file etl.StreamFilter="./etl/filters/awswaf.conf" \
+  --set etl.StreamOutput.debugconsole.enabled=false \
+  --set etl.StreamOutput.elasticsearch.enabled=true \
+  --set etl.StreamOutput.elasticsearch.Index=logstash-prod-bd-xcxsc-waflog-%{+MMyyyy}
+
+
 
 
 ## --------------- 检查 logstash etl input,filter,output  ---------------------------

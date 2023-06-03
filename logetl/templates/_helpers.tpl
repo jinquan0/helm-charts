@@ -88,6 +88,7 @@ logstash multi-pipelines definition file: /usr/share/logstash/pipeline/pipelines
 logstash ETL-Input configuration file.
 */}}
 {{- define "stream-input.conf" -}}
+{{- if .Values.etl.StreamInput.codecjson.enabled }}
 input {
   kafka {
     bootstrap_servers => "172.24.20.220:9092,172.24.20.221:9092,172.24.20.222:9092"
@@ -97,6 +98,16 @@ input {
     group_id => "{{ .Values.etl.Kafka.ConsumerGroup }}"  ## must modify
   }
 }
+{{- else }}
+input {
+  kafka {
+    bootstrap_servers => "172.24.20.220:9092,172.24.20.221:9092,172.24.20.222:9092"
+    topics => ["{{ .Values.etl.Kafka.Topic }}"]  ## must modify
+    consumer_threads => 1
+    group_id => "{{ .Values.etl.Kafka.ConsumerGroup }}"  ## must modify
+  }
+}
+{{- end }}
 {{- end }}
 
 

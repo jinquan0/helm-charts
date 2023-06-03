@@ -46,6 +46,9 @@ etl:
   Kafka:
     Topic: "test-jinquan-0"
     ConsumerGroup: "jinquan"
+  StreamInput:
+    codecjson:
+      enabled: true    # default codec => json
   StreamFilter: |-
     filter{
       json { 
