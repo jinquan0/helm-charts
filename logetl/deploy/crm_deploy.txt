@@ -5,7 +5,7 @@ helm install logetl-prod-crm-portal-cw . --namespace infra --create-namespace \
   --set etl.Kafka.Topic=prod-crm-portal-cw \
   --set etl.Kafka.ConsumerGroup=prod-crm-portal \
   --set-file etl.StreamFilter="./etl/filters/crm-app.conf" \
-  --set etl.StreamOutput.elasticsearch.Index=prod-crm-portal-cw-%{+MMyyyy} \
+  --set etl.StreamOutput.elasticsearch.Index=prod-crm-portal-cw-%{+yyyyMM} \
   --set etl.StreamOutput.debugconsole.enabled=false \
   --set etl.StreamOutput.elasticsearch.enabled=true \
   --set etl.StreamOutput.elasticsearch.Pass=B#uU8GMnkjhEygmK
@@ -16,7 +16,7 @@ helm install logetl-prod-crm-portal-lka . --namespace infra --create-namespace \
   --set etl.Kafka.Topic=prod-crm-portal-lka \
   --set etl.Kafka.ConsumerGroup=prod-crm-portal \
   --set-file etl.StreamFilter="./etl/filters/crm-app.conf" \
-  --set etl.StreamOutput.elasticsearch.Index=prod-crm-portal-lka-%{+MMyyyy} \
+  --set etl.StreamOutput.elasticsearch.Index=prod-crm-portal-lka-%{+yyyyMM} \
   --set etl.StreamOutput.debugconsole.enabled=false \
   --set etl.StreamOutput.elasticsearch.enabled=true \
   --set etl.StreamOutput.elasticsearch.Pass=B#uU8GMnkjhEygmK
@@ -27,7 +27,7 @@ helm install logetl-prod-crm-portal-sda . --namespace infra --create-namespace \
   --set etl.Kafka.Topic=prod-crm-portal-sda \
   --set etl.Kafka.ConsumerGroup=prod-crm-portal \
   --set-file etl.StreamFilter="./etl/filters/crm-app.conf" \
-  --set etl.StreamOutput.elasticsearch.Index=prod-crm-portal-sda-%{+MMyyyy} \
+  --set etl.StreamOutput.elasticsearch.Index=prod-crm-portal-sda-%{+yyyyMM} \
   --set etl.StreamOutput.debugconsole.enabled=false \
   --set etl.StreamOutput.elasticsearch.enabled=true \
   --set etl.StreamOutput.elasticsearch.Pass=B#uU8GMnkjhEygmK
@@ -40,7 +40,7 @@ helm install logetl-prod-crm-dynamiccrm-cw . --namespace infra --create-namespac
   --set etl.Kafka.Topic=prod-crm-dynamiccrm-cw \
   --set etl.Kafka.ConsumerGroup=prod-crm-dynamiccrm \
   --set-file etl.StreamFilter="./etl/filters/crm-app.conf" \
-  --set etl.StreamOutput.elasticsearch.Index=prod-crm-dynamiccrm-cw-%{+MMyyyy} \
+  --set etl.StreamOutput.elasticsearch.Index=prod-crm-dynamiccrm-cw-%{+yyyyMM} \
   --set etl.StreamOutput.debugconsole.enabled=false \
   --set etl.StreamOutput.elasticsearch.enabled=true \
   --set etl.StreamOutput.elasticsearch.Pass=B#uU8GMnkjhEygmK
@@ -51,7 +51,7 @@ helm install logetl-prod-crm-dynamiccrm-sda . --namespace infra --create-namespa
   --set etl.Kafka.Topic=prod-crm-dynamiccrm-sda \
   --set etl.Kafka.ConsumerGroup=prod-crm-dynamiccrm \
   --set-file etl.StreamFilter="./etl/filters/crm-app.conf" \
-  --set etl.StreamOutput.elasticsearch.Index=prod-crm-dynamiccrm-sda-%{+MMyyyy} \
+  --set etl.StreamOutput.elasticsearch.Index=prod-crm-dynamiccrm-sda-%{+yyyyMM} \
   --set etl.StreamOutput.debugconsole.enabled=false \
   --set etl.StreamOutput.elasticsearch.enabled=true \
   --set etl.StreamOutput.elasticsearch.Pass=B#uU8GMnkjhEygmK
@@ -62,7 +62,7 @@ helm install logetl-prod-crm-dynamiccrm-lka . --namespace infra --create-namespa
   --set etl.Kafka.Topic=prod-crm-dynamiccrm-lka \
   --set etl.Kafka.ConsumerGroup=prod-crm-dynamiccrm \
   --set-file etl.StreamFilter="./etl/filters/crm-app.conf" \
-  --set etl.StreamOutput.elasticsearch.Index=prod-crm-dynamiccrm-lka-%{+MMyyyy} \
+  --set etl.StreamOutput.elasticsearch.Index=prod-crm-dynamiccrm-lka-%{+yyyyMM} \
   --set etl.StreamOutput.debugconsole.enabled=false \
   --set etl.StreamOutput.elasticsearch.enabled=true \
   --set etl.StreamOutput.elasticsearch.Pass=B#uU8GMnkjhEygmK
@@ -75,7 +75,7 @@ helm install logetl-prod-crm-callcenter-api-record . --namespace infra --create-
   --set etl.Kafka.Topic=prod-crm-callcenter-api-record \
   --set etl.Kafka.ConsumerGroup=prod-crm-callcenter \
   --set-file etl.StreamFilter="./etl/filters/crm-app.conf" \
-  --set etl.StreamOutput.elasticsearch.Index=prod-crm-callcenter-api-record-%{+MMyyyy} \
+  --set etl.StreamOutput.elasticsearch.Index=prod-crm-callcenter-api-record-%{+yyyyMM} \
   --set etl.StreamOutput.debugconsole.enabled=false \
   --set etl.StreamOutput.elasticsearch.enabled=true \
   --set etl.StreamOutput.elasticsearch.Pass=B#uU8GMnkjhEygmK
