@@ -124,7 +124,10 @@ output {
 output {
   elasticsearch {
     hosts=>["172.24.20.217:9200","172.24.20.218:9200","172.24.20.219:9200"]
-    index=>"{{ .Values.etl.StreamOutput.elasticsearch.Index }}"        # must modity
+    #index=>"{{ .Values.etl.StreamOutput.elasticsearch.Index }}"        # must modity
+    ilm_rollover_alias => "{{ .Values.etl.StreamOutput.elasticsearch.IlmRolloverAlias }}"
+    ilm_pattern => "{now/d}-000001"
+    ilm_policy => "{{ .Values.etl.StreamOutput.elasticsearch.IlmPolicy }}"
     user => ["{{ .Values.etl.StreamOutput.elasticsearch.User }}"]      # must modify
     password => ["{{ .Values.etl.StreamOutput.elasticsearch.Pass }}"]  # must modify
   }

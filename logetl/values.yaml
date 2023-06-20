@@ -60,7 +60,10 @@ etl:
       enabled: true    # stdout{} for debug
     elasticsearch: 
       enabled: false
-      Index: "test-jinquan-0-%{+MMyyyy}"
+      #Index: "test-jinquan-0-%{+MMyyyy}"
+      IlmRolloverAlias: "test"
+      IlmPattern: "{now/d}-000001"
+      IlmPolicy: "test-index-policy"
       User: "logetl"
       Pass: "passw0rd"
 
