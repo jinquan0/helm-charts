@@ -78,6 +78,10 @@ autoscaling:
 
 nodeSelector: {}
 
-tolerations: []
+tolerations: 
+  - key: "control-plane"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
 
 affinity: {}

@@ -1,0 +1,84 @@
+helm install logetl-prod-bd-xcxsc-ingngx . --namespace infra --create-namespace \
+  --set replicaCount=3 \
+  --set image.repository="docker-hub.supor.com/infra/logstash" \
+  --set image.tag="7.17.3-geoip" \
+  --set etl.Name=logetl-prod-bd-xcxsc-ingngx \
+  --set etl.Kafka.Topic=prod-bd-xcxsc-ingngx \
+  --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
+  --set-file etl.StreamFilter="./etl/filters/ingngx-geocity.conf" \
+  --set etl.StreamOutput.debugconsole.enabled=false \
+  --set etl.StreamOutput.elasticsearch.enabled=true \
+  --set etl.StreamOutput.elasticsearch.IlmPolicy=logstash-prod-bd-xcxsc-ingngx \
+  --set etl.StreamOutput.elasticsearch.IlmPattern=\"{now/d}-000001\" \
+  --set etl.StreamOutput.elasticsearch.IlmRolloverAlias=logstash-prod-bd-xcxsc-ingngx \
+  --set etl.StreamOutput.elasticsearch.Pass=B#uU8GMnkjhEygmK
+
+
+helm install logetl-prod-bd-xcxsc-waflog . --namespace infra --create-namespace \
+  --set replicaCount=3 \
+  --set image.repository="docker-hub.supor.com/infra/logstash" \
+  --set image.tag="7.17.3-geoip" \
+  --set etl.Name=logetl-prod-bd-xcxsc-waflog \
+  --set etl.Kafka.Topic=prod-bd-xcxsc-waflog \
+  --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
+  --set etl.StreamInput.codecjson.enabled=false \
+  --set-file etl.StreamFilter="./etl/filters/awswaf.conf" \
+  --set etl.StreamOutput.debugconsole.enabled=false \
+  --set etl.StreamOutput.elasticsearch.enabled=true \
+  --set etl.StreamOutput.elasticsearch.IlmPolicy=prod-bd-xcxsc-waflog \
+  --set etl.StreamOutput.elasticsearch.IlmPattern=\"{now/M}-000001\" \
+  --set etl.StreamOutput.elasticsearch.IlmRolloverAlias=prod-bd-xcxsc-waflog \
+  --set etl.StreamOutput.elasticsearch.Pass=B#uU8GMnkjhEygmK
+
+
+helm install logetl-prod-bd-xcxsc-api . --namespace infra --create-namespace \
+  --set replicaCount=3 \
+  --set etl.Name=logetl-prod-bd-xcxsc-api \
+  --set etl.Kafka.Topic=prod-bd-xcxsc-api \
+  --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
+  --set-file etl.StreamFilter="./etl/filters/aws-xcxsc-app.conf" \
+  --set etl.StreamOutput.debugconsole.enabled=false \
+  --set etl.StreamOutput.elasticsearch.enabled=true \
+  --set etl.StreamOutput.elasticsearch.IlmPolicy=prod-bd-xcxsc-api \
+  --set etl.StreamOutput.elasticsearch.IlmPattern=\"{now/d}-000001\" \
+  --set etl.StreamOutput.elasticsearch.IlmRolloverAlias=prod-bd-xcxsc-api \
+  --set etl.StreamOutput.elasticsearch.Pass=B#uU8GMnkjhEygmK
+
+helm install logetl-prod-bd-xcxsc-admin . --namespace infra --create-namespace \
+  --set replicaCount=3 \
+  --set etl.Name=logetl-prod-bd-xcxsc-admin \
+  --set etl.Kafka.Topic=prod-bd-xcxsc-admin \
+  --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
+  --set-file etl.StreamFilter="./etl/filters/aws-xcxsc-app.conf" \
+  --set etl.StreamOutput.debugconsole.enabled=false \
+  --set etl.StreamOutput.elasticsearch.enabled=true \
+  --set etl.StreamOutput.elasticsearch.IlmPolicy=prod-bd-xcxsc-admin \
+  --set etl.StreamOutput.elasticsearch.IlmPattern=\"{now/d}-000001\" \
+  --set etl.StreamOutput.elasticsearch.IlmRolloverAlias=prod-bd-xcxsc-admin \
+  --set etl.StreamOutput.elasticsearch.Pass=B#uU8GMnkjhEygmK
+
+helm install logetl-prod-bd-xcxsc-messenger . --namespace infra --create-namespace \
+  --set replicaCount=3 \
+  --set etl.Name=logetl-prod-bd-xcxsc-messenger \
+  --set etl.Kafka.Topic=prod-bd-xcxsc-messenger \
+  --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
+  --set-file etl.StreamFilter="./etl/filters/aws-xcxsc-app.conf" \
+  --set etl.StreamOutput.debugconsole.enabled=false \
+  --set etl.StreamOutput.elasticsearch.enabled=true \
+  --set etl.StreamOutput.elasticsearch.IlmPolicy=prod-bd-xcxsc-messenger \
+  --set etl.StreamOutput.elasticsearch.IlmPattern=\"{now/d}-000001\" \
+  --set etl.StreamOutput.elasticsearch.IlmRolloverAlias=prod-bd-xcxsc-messenger \
+  --set etl.StreamOutput.elasticsearch.Pass=B#uU8GMnkjhEygmK
+
+helm install logetl-prod-bd-xcxsc-cronjob . --namespace infra --create-namespace \
+  --set replicaCount=1 \
+  --set etl.Name=logetl-prod-bd-xcxsc-cronjob \
+  --set etl.Kafka.Topic=prod-bd-xcxsc-cronjob \
+  --set etl.Kafka.ConsumerGroup=prod-bd-xcxsc \
+  --set-file etl.StreamFilter="./etl/filters/aws-xcxsc-app.conf" \
+  --set etl.StreamOutput.debugconsole.enabled=false \
+  --set etl.StreamOutput.elasticsearch.enabled=true \
+  --set etl.StreamOutput.elasticsearch.IlmPolicy=prod-bd-xcxsc-cronjob \
+  --set etl.StreamOutput.elasticsearch.IlmPattern=\"{now/d}-000001\" \
+  --set etl.StreamOutput.elasticsearch.IlmRolloverAlias=prod-bd-xcxsc-cronjob \
+  --set etl.StreamOutput.elasticsearch.Pass=B#uU8GMnkjhEygmK
