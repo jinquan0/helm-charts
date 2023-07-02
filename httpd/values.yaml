@@ -19,6 +19,9 @@ sidecar:
     repository: registry.cn-hangzhou.aliyuncs.com/jinquan711/alpine
     pullPolicy: IfNotPresent
     tag: 1.0-jq
+  service:
+    type: ClusterIP
+    port: 22
 
 serviceAccount:
   # Specifies whether a service account should be created

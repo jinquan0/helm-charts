@@ -11,5 +11,9 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    - port: {{ .Values.sidecar.service.port }}
+      targetPort: 22
+      protocol: TCP
+      name: ssh
   selector:
     {{- include "httpd.selectorLabels" . | nindent 4 }}
