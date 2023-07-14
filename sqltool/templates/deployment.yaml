@@ -39,10 +39,10 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: ["/app/sqltool", "-conf", "/app/myconfig/config.yaml"]
+          #command: ["/app/sqltool", "-conf", "/app/myconfig/config.yaml"]
           volumeMounts:
           - name: myconfig
-            mountPath: /app/myconfig
+            mountPath: /etc/sqltool
           ports:
             - name: http
               containerPort: 8080
