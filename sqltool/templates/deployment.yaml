@@ -30,7 +30,7 @@ spec:
       volumes:
       - name: myconfig
         configMap:
-          name: sqltool-config
+          name: {{ include "sqltool.fullname" . }}
           items:
           - {key: config.yaml, path: config.yaml}
       containers:

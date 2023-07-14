@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: sqltool-config
+  name: {{ include "sqltool.fullname" . }}
   labels:
     {{- include "sqltool.labels" . | nindent 4 }}
 data:
