@@ -79,9 +79,19 @@ autoscaling:
 nodeSelector: {}
 
 tolerations: 
-  - key: "control-plane"
+  - key: "karpenter.sh/capacity-type"
+  #- key: "eks.amazonaws.com/capacityType"
     operator: "Equal"
-    value: "true"
+    value: "spot"
+    #value: "ON_DEMAND"
     effect: "NoSchedule"
 
-affinity: {}
+affinity: 
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: eks.amazonaws.com/capacityType
+          operator: In  ## NotIn
+          values:
+          - ON_DEMAND

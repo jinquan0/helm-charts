@@ -3,7 +3,7 @@ entries:
   alertpublisher:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2023-07-14T17:44:40.391636258+08:00"
+    created: "2023-12-05T06:44:21.952675833Z"
     description: alertpublisher chart for Kubernetes
     digest: 6e06fc0b226312b9b584ee3351848699ab46d4d67101404bdba660696064e999
     name: alertpublisher
@@ -11,50 +11,10 @@ entries:
     urls:
     - alertpublisher-0.1.4.tgz
     version: 0.1.4
-  - apiVersion: v2
-    appVersion: 1.1.0
-    created: "2023-07-14T17:44:40.391092241+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 0457422379258e6b516c0fa7fffcd93a401511db97f0116da1fb92701b189e38
-    name: alertpublisher
-    type: application
-    urls:
-    - alertpublisher-0.1.3.tgz
-    version: 0.1.3
-  - apiVersion: v2
-    appVersion: 1.1.0
-    created: "2023-07-14T17:44:40.390051219+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 9313ccb45be78df5ecde8b29858bcdb41fb131ce906eaab6e1ed7f5cc3e5035c
-    name: alertpublisher
-    type: application
-    urls:
-    - alertpublisher-0.1.2.tgz
-    version: 0.1.2
-  - apiVersion: v2
-    appVersion: 1.1.0
-    created: "2023-07-14T17:44:40.389258704+08:00"
-    description: A Helm chart for Kubernetes
-    digest: bb258435e053b9bddbbc1369bbdf9b1e8d9fb1d9d9368350ef08bcc194cc78d0
-    name: alertpublisher
-    type: application
-    urls:
-    - alertpublisher-0.1.1.tgz
-    version: 0.1.1
-  - apiVersion: v2
-    appVersion: 1.1.0
-    created: "2023-07-14T17:44:40.388492648+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 7c425cd8abc5082b891ec44cea6a0b35b44e64ff657f8a259205a8c7dca7132a
-    name: alertpublisher
-    type: application
-    urls:
-    - alertpublisher-0.1.0.tgz
-    version: 0.1.0
   canary-demoapp:
   - apiVersion: v2
     appVersion: v1.1
-    created: "2023-07-14T17:44:40.392296719+08:00"
+    created: "2023-12-05T06:44:21.953325793Z"
     description: Canary demo application
     digest: f37e04e9348994e47141f5bbf372d82be5756f88b2dd921e49355bbf1c804057
     name: canary-demoapp
@@ -65,7 +25,7 @@ entries:
   cloudbill:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.392921093+08:00"
+    created: "2023-12-05T06:44:21.953992048Z"
     description: A Helm chart for Kubernetes
     digest: b5d424568a77dae3ab2add1d323d1f9584d82a721f8a22449af48c71ee2abee1
     name: cloudbill
@@ -76,7 +36,7 @@ entries:
   httpd:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.39418236+08:00"
+    created: "2023-12-05T06:44:21.954719134Z"
     description: A Helm chart for Kubernetes
     digest: 9ffc8f63563bf309100002ba75d6641dfff5190af6ddcb1bfc33b757ed979018
     name: httpd
@@ -84,20 +44,10 @@ entries:
     urls:
     - httpd-0.1.1.tgz
     version: 0.1.1
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.393535394+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 1cf72080aeeb66368b7f398e1d4f47fc3eb0ff49f9b8c71166bfeb8f546e50b0
-    name: httpd
-    type: application
-    urls:
-    - httpd-0.1.0.tgz
-    version: 0.1.0
   logetl:
   - apiVersion: v2
     appVersion: logstash-7.17.3
-    created: "2023-07-14T17:44:40.395786083+08:00"
+    created: "2023-12-05T06:44:21.955824541Z"
     description: logstash ETL as Kafka Consumer Group
     digest: 132df407cd59796a1f02255b8d168e821fe646ce9315d6e9bbad151de7f315a1
     name: logetl
@@ -105,20 +55,10 @@ entries:
     urls:
     - logetl-0.2.0.tgz
     version: 0.2.0
-  - apiVersion: v2
-    appVersion: logstash-7.17.3
-    created: "2023-07-14T17:44:40.394851971+08:00"
-    description: logstash ETL as Kafka Consumer Group
-    digest: 5aef500d448f4682f31c484d50597a5ab7964ff55b2ad260a9579bdcf761683e
-    name: logetl
-    type: application
-    urls:
-    - logetl-0.1.0.tgz
-    version: 0.1.0
   rockylinux:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.39985043+08:00"
+    created: "2023-12-05T06:44:21.963737816Z"
     description: A Helm chart for Kubernetes
     digest: 79deead5df7bd8f45408f0739c5d31f2b54474afcb6eaaf0ee06200f692efa0d
     name: rockylinux
@@ -126,121 +66,21 @@ entries:
     urls:
     - rockylinux-0.1.6.tgz
     version: 0.1.6
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.39930735+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 0e2ae7b192ef4e626747f72c9c7d5f58a30deba4f71a9a8d731127985c7fed70
-    name: rockylinux
-    type: application
-    urls:
-    - rockylinux-0.1.5.tgz
-    version: 0.1.5
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.398750481+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 9805aef22c2c93452fb526afb90bbafb555b3bdfe235784d6337aa1bf76d3b44
-    name: rockylinux
-    type: application
-    urls:
-    - rockylinux-0.1.4.tgz
-    version: 0.1.4
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.39819141+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 70b05c690841e2ff35e47280287b3d47c6934cbb5c1a772b307aa7a5b81b0c72
-    name: rockylinux
-    type: application
-    urls:
-    - rockylinux-0.1.3.tgz
-    version: 0.1.3
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.397634091+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 85f4332566da595bd48944a69f540ed68bb4196d82bad89ee381c8a5dde07c65
-    name: rockylinux
-    type: application
-    urls:
-    - rockylinux-0.1.2.tgz
-    version: 0.1.2
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.397011725+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 3429c2967664f144f43fb59b3a033995d3b3e01efe7c2df3313d28d29c28546c
-    name: rockylinux
-    type: application
-    urls:
-    - rockylinux-0.1.1.tgz
-    version: 0.1.1
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.396350031+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 02a21802eb4832d333265626adbef6433f94c9782b59e05a74c24d134f4fcdee
-    name: rockylinux
-    type: application
-    urls:
-    - rockylinux-0.1.0.tgz
-    version: 0.1.0
   sebedr:
   - apiVersion: v2
     appVersion: 6.51.0-14810
-    created: "2023-07-14T17:44:40.403019651+08:00"
+    created: "2023-12-05T06:44:21.964802733Z"
     description: SEB EDR Agent for Kubernetes
-    digest: 539ea5d2ceb8a66430241a5d7d45e5c428285267118fabf972a5105a50daa076
+    digest: a6a612371d0b62323c8a669bd19c747235c90d0dd39736b188eaec9d920a267f
     name: sebedr
     type: application
     urls:
     - sebedr-0.1.4.tgz
     version: 0.1.4
-  - apiVersion: v2
-    appVersion: 6.51.0-14810
-    created: "2023-07-14T17:44:40.402009251+08:00"
-    description: SEB EDR Agent for Kubernetes
-    digest: 61a43b9137082559f09969ab67863964ea49681ee4c459b89e792edc2f177899
-    name: sebedr
-    type: application
-    urls:
-    - sebedr-0.1.3.tgz
-    version: 0.1.3
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.401462558+08:00"
-    description: SEB EDR Agent for Kubernetes
-    digest: 5bdd636ed5f9b74c72ccda12680d15a90e1f62e597b9f3059c6b7a5f24b16453
-    name: sebedr
-    type: application
-    urls:
-    - sebedr-0.1.2.tgz
-    version: 0.1.2
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.400943731+08:00"
-    description: A Helm chart for Kubernetes
-    digest: b3a61f712a159cd0c5f6ec4576da92737d6a3ec4ecfcd88124e42543b409503f
-    name: sebedr
-    type: application
-    urls:
-    - sebedr-0.1.1.tgz
-    version: 0.1.1
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.400388685+08:00"
-    description: A Helm chart for Kubernetes
-    digest: e513b4de3ebcc53ba85679f765b74ca4374d66ccc8fe8941ac37c62ea24692be
-    name: sebedr
-    type: application
-    urls:
-    - sebedr-0.1.0.tgz
-    version: 0.1.0
   sebedr-scale:
   - apiVersion: v2
     appVersion: 6.51.0-14810
-    created: "2023-07-14T17:44:40.403804292+08:00"
+    created: "2023-12-05T06:44:21.965647227Z"
     description: SEB EDR Agent for Kubernetes
     digest: dc1feb35eca7374bb33ca0e526f423579c3c8a4cac1492b4277fbe273d739347
     name: sebedr-scale
@@ -251,7 +91,7 @@ entries:
   solar:
   - apiVersion: v2
     appVersion: 2.1.2
-    created: "2023-07-14T17:44:40.410669604+08:00"
+    created: "2023-12-05T06:44:21.966538548Z"
     description: A Helm chart for Kubernetes
     digest: 8230c02f18db9ba8f7174058f05359243f30f1f61588acdc9b37932f30c34c4c
     name: solar
@@ -259,90 +99,10 @@ entries:
     urls:
     - solar-0.1.9.tgz
     version: 0.1.9
-  - apiVersion: v2
-    appVersion: 2.1.1
-    created: "2023-07-14T17:44:40.409906639+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 84bd5748161530a306c3597f65b9dd822e8afb524d4094e85b7e6f94eeb25dfb
-    name: solar
-    type: application
-    urls:
-    - solar-0.1.7.tgz
-    version: 0.1.7
-  - apiVersion: v2
-    appVersion: 2.1.1
-    created: "2023-07-14T17:44:40.409172469+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 3b1b17a0d699b197ca54cc038e5564fa571eb564ce0ae5367eec5632b8c0304e
-    name: solar
-    type: application
-    urls:
-    - solar-0.1.6.tgz
-    version: 0.1.6
-  - apiVersion: v2
-    appVersion: 2.1.0
-    created: "2023-07-14T17:44:40.408435622+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 9ded38cb56ef2b5f126e62796dc594efb8ff1642f30ed37ee13579678d60dce2
-    name: solar
-    type: application
-    urls:
-    - solar-0.1.5.tgz
-    version: 0.1.5
-  - apiVersion: v2
-    appVersion: 2.1.0
-    created: "2023-07-14T17:44:40.407698558+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 36d67df247f11c24260b714f12523bac7da830e7dfcff6d95b8a022ca60de9fb
-    name: solar
-    type: application
-    urls:
-    - solar-0.1.4.tgz
-    version: 0.1.4
-  - apiVersion: v2
-    appVersion: 2.1.0
-    created: "2023-07-14T17:44:40.406942588+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 8194a7500d544041acd6036a5f1144eb2879653e123ba00ca58ba2d2a14cecef
-    name: solar
-    type: application
-    urls:
-    - solar-0.1.3.tgz
-    version: 0.1.3
-  - apiVersion: v2
-    appVersion: 2.1.0
-    created: "2023-07-14T17:44:40.40625517+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 09a6605a04f859c67a48daeefffc41a665a1d031f6f66fb88de64ca408037350
-    name: solar
-    type: application
-    urls:
-    - solar-0.1.2.tgz
-    version: 0.1.2
-  - apiVersion: v2
-    appVersion: 2.1.0
-    created: "2023-07-14T17:44:40.405585837+08:00"
-    description: A Helm chart for Kubernetes
-    digest: e7fda2dd4338b6739e4ae8fe92a9e2c04938adf9e1c05e9687861d32a78420c1
-    name: solar
-    type: application
-    urls:
-    - solar-0.1.1.tgz
-    version: 0.1.1
-  - apiVersion: v2
-    appVersion: 2.1.0
-    created: "2023-07-14T17:44:40.404711482+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 72fc5105ed1da2c93c57b23448eef82e649b3d2447eb9bce545eff146f282b91
-    name: solar
-    type: application
-    urls:
-    - solar-0.1.0.tgz
-    version: 0.1.0
   sqltool:
   - apiVersion: v2
     appVersion: "3.8"
-    created: "2023-07-14T17:44:40.41409705+08:00"
+    created: "2023-12-05T06:44:21.967138168Z"
     description: A Helm chart for Kubernetes
     digest: b3e139ef54791360640a35b179d6308fa2505630d82531c32c6bdfe43e955a92
     name: sqltool
@@ -350,54 +110,4 @@ entries:
     urls:
     - sqltool-0.1.5.tgz
     version: 0.1.5
-  - apiVersion: v2
-    appVersion: "3.7"
-    created: "2023-07-14T17:44:40.413524721+08:00"
-    description: A Helm chart for Kubernetes
-    digest: c47fc887ff2d75ae10b77cf48d9a37999529dc0fcc2a01859892aa08ae5731e5
-    name: sqltool
-    type: application
-    urls:
-    - sqltool-0.1.4.tgz
-    version: 0.1.4
-  - apiVersion: v2
-    appVersion: "3.4"
-    created: "2023-07-14T17:44:40.412981227+08:00"
-    description: A Helm chart for Kubernetes
-    digest: bbd57f6f991d8cfa15a9777cc11593345e6294aeb86f488e79b55b88f64d4376
-    name: sqltool
-    type: application
-    urls:
-    - sqltool-0.1.3.tgz
-    version: 0.1.3
-  - apiVersion: v2
-    appVersion: "3.2"
-    created: "2023-07-14T17:44:40.412411729+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 268a448b261de6f842ae3ec1a23da81b41a10619714cc26fd344297875454880
-    name: sqltool
-    type: application
-    urls:
-    - sqltool-0.1.2.tgz
-    version: 0.1.2
-  - apiVersion: v2
-    appVersion: "1.1"
-    created: "2023-07-14T17:44:40.411798063+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 26f75f0fa783a7d696705798fb9b3c6dd6257170bfa1e554b7bfd4f2683ce368
-    name: sqltool
-    type: application
-    urls:
-    - sqltool-0.1.1.tgz
-    version: 0.1.1
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2023-07-14T17:44:40.411252078+08:00"
-    description: A Helm chart for Kubernetes
-    digest: 0eec7cc917b729ed7d8fc1f3fc89bebe69eb98fd80f47844ee48af7189e8e9cb
-    name: sqltool
-    type: application
-    urls:
-    - sqltool-0.1.0.tgz
-    version: 0.1.0
-generated: "2023-07-14T17:44:40.38692053+08:00"
+generated: "2023-12-05T06:44:21.951863194Z"
